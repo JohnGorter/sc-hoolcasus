@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 Console.WriteLine("Hello, World!");
 
-
+// STAP 1. Overnemen van het klassediagram in code om te kijken hoe het "voelt" 
 
 class Person {
     public String Name { get; set; }
