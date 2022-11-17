@@ -1,0 +1,15 @@
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.csproj.AssemblyReference.cache
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.GeneratedMSBuildEditorConfig.editorconfig
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.AssemblyInfoInputs.cache
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.AssemblyInfo.cs
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.csproj.CoreCompileInputs.cache
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/schoolcasus
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/schoolcasus.deps.json
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/schoolcasus.runtimeconfig.json
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/schoolcasus.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/schoolcasus.pdb
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.dll
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/refint/schoolcasus.dll
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.pdb
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.genruntimeconfig.cache
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/ref/schoolcasus.dll
