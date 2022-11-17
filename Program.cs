@@ -15,20 +15,28 @@ outcome.Goals.Add(goal3);
 Outcome outcome2 = new Outcome() { Goals = new List<Goal>(), Description = "NONSENS QUALIFICATION"};
 outcome2.Goals.Add(goal4); 
 
-Lesson lesson = new Lesson() { Description="Develop a game", Goal = goal} ;
-Lesson lesson2 = new Lesson() { Description="Present a lesson", Goal = goal3};
-Lesson lesson3 = new Lesson() { Description="Bullshitlesson", Goal = goal4};
+Lesson lesson = new Lesson("", "Develop a game") { Goal = goal};
+Lesson lesson2 = new Lesson("", "Write learning journals") { Goal = goal2};
+Lesson lesson3 = new Lesson("", "Knowledge sharing lesson") { Goal = goal3};
+Lesson lesson4 = new Lesson("", "Bullshitlesson") { Goal = goal4};
 
-Exam e = new Exam() {Code = "SExam1", Goal = goal };
+Exam e = new Exam("SExam1", "") { Goal = goal };
+Exam e2 = new Exam("SExam2", "") { Goal = goal2 };
+Exam e3 = new Exam("SExam3", "") { Goal = goal3 };
 
 Teacher teacher = new Teacher() { Name = "John "};
-Course course = new Course() { Name="OOSE", Teacher = teacher, Outcomes = new List<Outcome>(), Lessons = new List<Lesson>(), Exams = new List<Exam>()};
+Course course = new Course() { Name="OOSE", Teacher = teacher, Outcomes = new List<Outcome>(), units = new List<LessonUnit>() } ;
 course.Outcomes.AddRange(new List<Outcome>{ outcome });
-course.Lessons.AddRange(new List<Lesson>() { lesson, lesson2});
-course.Exams.AddRange(new List<Exam>() { e });
+course.units.AddRange(new List<Lesson>() { lesson, lesson3 });
+course.units.AddRange(new List<Exam>() { e, e2, });
 
-// STAP 3. Sequence diagram overnemen en testen
-Console.WriteLine($"Is the course consistent? {course.Validate()}"); 
+// STAP 3. Sequence diagram overnemen en 
+var result = course.Validate();
+Console.WriteLine($"Is the course consistent? {result.result}"); 
+if (result.result == false) {
+    foreach (String line in result.validationrules!)
+        Console.WriteLine($"{line}"); 
+}
 
 
 // STAP 1. Overnemen van het klassediagram in code om te kijken hoe het "voelt" 
@@ -44,30 +52,48 @@ class Course {
     public Teacher? Teacher { get; set;}
     public String? Name { get; set; }
     public List<Outcome>? Outcomes { get; set; }
-    public List<Lesson>? Lessons { get; set; } 
-    public List<Exam>? Exams { get; set; } 
+    public List<LessonUnit>? units { get; set; } 
 
-    public bool Validate(){ 
-        bool valid = true; 
+    public ValidationResult Validate(){ 
+        ValidationResult result = new ValidationResult(); 
+        result.validationrules = new List<string>(); 
+        result.result = true;
+
         List<Goal> courseGoals = new List<Goal>(); 
         if (Outcomes != null) foreach (Outcome outcome in Outcomes) { courseGoals.AddRange(outcome.getGoals()); }
-        foreach(Lesson lesson in Lessons!){
-           if(!lesson.Validate(courseGoals)) { 
-            System.Console.WriteLine("Lesson " + lesson.Description + " is serving a goal that is not for this course (" + lesson.Goal!.Description + ")");
-            valid = false;
-            break;
+        foreach(LessonUnit unit in units!){
+           if(!unit.Validate(courseGoals)) { 
+            System.Console.WriteLine("LessonUnit " + unit.Description + "("+ unit.Code+") is serving a goal that is not for this course (" + unit.Goal!.Description + ")");
+            result.validationrules.Add("LessonUnit " + unit.Description + "("+ unit.Code+") is serving a goal that is not for this course (" + unit.Goal!.Description + ")");
+            result.result = false;
+           //  break;
            }
         }
-        if (valid) {
-            foreach(Exam exam in Exams!){
-                if(!exam.Validate(courseGoals)) { 
-                    System.Console.WriteLine("Exam " + exam.Code + " is serving a goal that is not for this course (" + exam.Goal!.Description + ")");
-                    valid = false;
-                    break;
+        // DIT MOET NOG IN DE SD
+        foreach (Goal goal in courseGoals) {
+            Lesson? foundLesson = null;
+            Exam? foundExam = null;
+            foreach(LessonUnit unit in units!){
+                if (unit.Goal == goal) {
+                    if (unit is Lesson) foundLesson = unit as Lesson;
+                    if (unit is Exam) foundExam = unit as Exam;
                 }
             }
+            if (foundExam == null || foundLesson == null) {
+                if (foundLesson == null) {
+                    // Console.WriteLine("There is a goal " + goal.Description + " that is not included in a lesson");
+                    result.validationrules.Add("There is a goal " + goal.Description + " that is not included in a lesson");
+                }
+                if (foundExam == null) {
+                    // Console.WriteLine("There is a goal " + goal.Description + " that is not included in an exam");
+                    result.validationrules.Add("There is a goal " + goal.Description + " that is not included in an exam");
+                }
+                result.result = false;
+               //  break;
+            }
         }
-        return valid; 
+        // TOT HIER
+        return result; 
     }
     public List<Goal> getGoals() { return new List<Goal>();}
 
@@ -84,20 +110,30 @@ class Outcome {
     public List<Goal> getGoals() { return Goals!;}
 }
 
-class Lesson {
-    public String? Description { get; set; }
+abstract class LessonUnit {
+    public LessonUnit(String Code, String Description)
+    {
+        this.Code = Code;
+        this.Description = Description; 
+    }
+    public String Code { get; set; }
+    public String Description { get; set; }
+
     public Goal? Goal { get; set; }
 
     public bool Validate(List<Goal> courseGoals) { 
         return (courseGoals.IndexOf(Goal!) >= 0); // op dit moment kijken we echt naar object identiteit, niet naar code of titel van een goal..
      }
 }
+class Lesson : LessonUnit {
+    public Lesson(String Code, String Description) : base(Code, Description) {}
+}
 
-class Exam {
-    public String? Code { get; set; }
-    public Goal? Goal { get; set; }
+class Exam : LessonUnit {
+    public Exam(String Code, String Description) : base(Code, Description) {}
+}
 
-    public bool Validate(List<Goal> courseGoals) { 
-        return (courseGoals.IndexOf(Goal!) >= 0); // op dit moment kijken we echt naar object identiteit, niet naar code of titel van een goal..
-    }
+class ValidationResult {
+    public bool result { get; set; }
+    public List<String>? validationrules { get; set;}
 }
