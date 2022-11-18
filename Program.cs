@@ -27,8 +27,8 @@ Exam e3 = new Exam("SExam3", "") { Goal = goal3 };
 Teacher teacher = new Teacher() { Name = "John "};
 Course course = new Course() { Name="OOSE", Teacher = teacher, Outcomes = new List<Outcome>(), units = new List<LessonUnit>() } ;
 course.Outcomes.AddRange(new List<Outcome>{ outcome });
-course.units.AddRange(new List<Lesson>() { lesson, lesson3 });
-course.units.AddRange(new List<Exam>() { e, e2, });
+course.units.AddRange(new List<Lesson>() { lesson, lesson2, lesson3 });
+course.units.AddRange(new List<Exam>() { e, e2, e3});
 
 // STAP 3. Sequence diagram overnemen en 
 var result = course.Validate();
