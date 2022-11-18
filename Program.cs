@@ -63,10 +63,10 @@ class Course {
         if (Outcomes != null) foreach (Outcome outcome in Outcomes) { courseGoals.AddRange(outcome.getGoals()); }
         foreach(LessonUnit unit in units!){
            if(!unit.Validate(courseGoals)) { 
-            System.Console.WriteLine("LessonUnit " + unit.Description + "("+ unit.Code+") is serving a goal that is not for this course (" + unit.Goal!.Description + ")");
+            // System.Console.WriteLine("LessonUnit " + unit.Description + "("+ unit.Code+") is serving a goal that is not for this course (" + unit.Goal!.Description + ")");
             result.validationrules.Add("LessonUnit " + unit.Description + "("+ unit.Code+") is serving a goal that is not for this course (" + unit.Goal!.Description + ")");
             result.result = false;
-           //  break;
+           // break;
            }
         }
         // DIT MOET NOG IN DE SD
@@ -89,7 +89,7 @@ class Course {
                     result.validationrules.Add("There is a goal " + goal.Description + " that is not included in an exam");
                 }
                 result.result = false;
-               //  break;
+               // break;
             }
         }
         // TOT HIER
