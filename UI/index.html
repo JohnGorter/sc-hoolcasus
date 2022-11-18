@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="courseinfo"></div>
+    <div id="teacherinfo"></div>
+    <button id="btnValidate">Validate</button>
+    <script type="module">
+        let response = await fetch("http://localhost:5261/Course");
+        let data = await response.json(); 
+        console.log("data", data); 
+        document.querySelector("#courseinfo").innerHTML = data[0].name;
+        document.querySelector("#teacherinfo").innerHTML = data[0].teacher.name;
+    </script>
+</body>
+</html>
