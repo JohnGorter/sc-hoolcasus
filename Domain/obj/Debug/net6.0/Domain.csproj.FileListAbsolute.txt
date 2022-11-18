@@ -1,0 +1,17 @@
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Domain.deps.json
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Domain.dll
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Domain.pdb
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Core.dll
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Data.dll
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Core.pdb
+/Users/johngorter/Desktop/schoolcasus/Domain/bin/Debug/net6.0/Data.pdb
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.csproj.AssemblyReference.cache
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.AssemblyInfoInputs.cache
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.AssemblyInfo.cs
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.csproj.CoreCompileInputs.cache
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.csproj.CopyComplete
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.dll
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/refint/Domain.dll
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/Domain.pdb
+/Users/johngorter/Desktop/schoolcasus/Domain/obj/Debug/net6.0/ref/Domain.dll
