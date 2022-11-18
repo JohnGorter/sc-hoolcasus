@@ -13,3 +13,14 @@
 /Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.pdb
 /Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.genruntimeconfig.cache
 /Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/ref/schoolcasus.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Logging.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Options.dll
+/Users/johngorter/Desktop/schoolcasus/bin/Debug/net7.0/Microsoft.Extensions.Primitives.dll
+/Users/johngorter/Desktop/schoolcasus/obj/Debug/net7.0/schoolcasus.csproj.CopyComplete
